@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio of Tamjid Al Shariq — debater, organizer, speaker and student.">
+  <title>Tamjid Al Shariq | Portfolio</title>
+  <style>
+    :root{
+      --bg:#f4efe7;
+      --paper:#fffaf2;
+      --ink:#241c17;
+      --muted:#75685d;
+      --brown:#5a3828;
+      --brown2:#7b523a;
+      --line:#ded1c2;
+      --accent:#c59a72;
+      --shadow:0 18px 50px rgba(54,38,27,.10);
+      --radius:24px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+      background:var(--bg); color:var(--ink); line-height:1.65;
+    }
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1120px,92%);margin:auto}
+    nav{
+      position:sticky;top:0;z-index:20;
+      background:rgba(244,239,231,.88);backdrop-filter:blur(14px);
+      border-bottom:1px solid rgba(90,56,40,.12)
+    }
+    .nav-inner{height:74px;display:flex;align-items:center;justify-content:space-between}
+    .brand{font-weight:900;letter-spacing:-.04em;font-size:1.15rem}
+    .nav-links{display:flex;gap:25px;font-size:.92rem;font-weight:700;color:var(--muted)}
+    .nav-links a:hover{color:var(--brown)}
+    .menu{display:none;background:none;border:0;font-size:1.5rem}
+    section{padding:95px 0}
+    .hero{min-height:calc(100vh - 74px);display:grid;place-items:center}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:70px;align-items:center}
+    .eyebrow{
+      color:var(--brown2);font-weight:900;letter-spacing:.16em;text-transform:uppercase;
+      font-size:.78rem;margin-bottom:18px
+    }
+    h1{font-size:clamp(3.5rem,8vw,7rem);line-height:.9;letter-spacing:-.07em;margin-bottom:25px}
+    .hero h1 span{color:var(--brown)}
+    .lead{font-size:1.15rem;color:var(--muted);max-width:680px}
+    .buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+    .btn{padding:13px 20px;border-radius:999px;font-weight:800;border:1px solid var(--brown)}
+    .btn.primary{background:var(--brown);color:white}
+    .btn.secondary{background:transparent}
+    .hero-card{
+      background:var(--brown);color:white;border-radius:35px;padding:38px;
+      box-shadow:var(--shadow);transform:rotate(2deg)
+    }
+    .hero-card .big{font-size:5rem;font-weight:950;line-height:1}
+    .hero-card h3{font-size:1.5rem;margin:18px 0 8px}
+    .hero-card p{color:#eaded4}
+    .section-head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:45px}
+    .section-head h2{font-size:clamp(2.3rem,5vw,4rem);letter-spacing:-.055em;line-height:1}
+    .section-head p{max-width:500px;color:var(--muted)}
+    .about{background:var(--paper)}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px}
+    .about-copy{font-size:1.08rem;color:#4d4037}
+    .facts{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .fact{padding:24px;background:var(--bg);border:1px solid var(--line);border-radius:18px}
+    .fact strong{display:block;font-size:1.7rem;color:var(--brown)}
+    .fact span{color:var(--muted);font-size:.9rem}
+    .skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .skill{background:var(--paper);border:1px solid var(--line);padding:28px;border-radius:20px}
+    .skill .num{font-size:.75rem;color:var(--accent);font-weight:900}
+    .skill h3{margin:15px 0 7px;font-size:1.25rem}
+    .skill p{color:var(--muted);font-size:.94rem}
+    .achievements{background:var(--paper)}
+    .timeline{display:grid;gap:14px}
+    .achievement{
+      display:grid;grid-template-columns:110px 1fr auto;gap:25px;align-items:center;
+      padding:24px;border-top:1px solid var(--line)
+    }
+    .achievement .year{font-weight:900;color:var(--brown)}
+    .achievement h3{font-size:1.1rem}
+    .achievement p{color:var(--muted);font-size:.9rem}
+    .tag{border:1px solid var(--line);padding:6px 11px;border-radius:999px;font-size:.75rem;font-weight:800}
+    .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .project{
+      min-height:300px;background:var(--brown);color:white;border-radius:22px;padding:28px;
+      display:flex;flex-direction:column;justify-content:space-between
+    }
+    .project:nth-child(2){background:#7b523a}
+    .project:nth-child(3){background:#3f2b21}
+    .project small{opacity:.7;text-transform:uppercase;letter-spacing:.1em;font-weight:800}
+    .project h3{font-size:1.7rem;line-height:1.05;margin:18px 0 10px}
+    .project p{color:#eaded4;font-size:.92rem}
+    .project a{font-weight:900;margin-top:25px}
+    .contact{background:var(--brown);color:white}
+    .contact .section-head p{color:#eaded4}
+    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .contact-card{border:1px solid rgba(255,255,255,.18);border-radius:20px;padding:25px}
+    .contact-card span{display:block;color:#cdb8a9;font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;font-weight:800;margin-bottom:5px}
+    footer{background:#241c17;color:#cdb8a9;padding:25px 0;font-size:.85rem}
+    .footer-inner{display:flex;justify-content:space-between;gap:20px}
+    @media(max-width:800px){
+      .nav-links{display:none}.menu{display:block}
+      .hero-grid,.about-grid,.contact-grid{grid-template-columns:1fr}
+      .hero-card{transform:none}.skills-grid,.projects{grid-template-columns:1fr}
+      .section-head{display:block}.section-head p{margin-top:18px}
+      .achievement{grid-template-columns:1fr;gap:8px}
+      .achievement .tag{width:max-content}
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a class="brand" href="#home">TAMJID AL SHARIQ</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#achievements">Achievements</a>
+      <a href="#projects">Portfolio</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <button class="menu" aria-label="Open menu" onclick="document.querySelector('.nav-links').classList.toggle('mobile')">☰</button>
+  </div>
+</nav>
+
+<main>
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div>
+        <div class="eyebrow">Active Debater · Student · Organizer</div>
+        <h1>Think.<br><span>Speak.</span><br>Lead.</h1>
+        <p class="lead">
+          Welcome to my portfolio — a curated collection of my achievements,
+          capabilities and skills, built around analytical thinking, logical conclusions,
+          diplomatic research and the urge to make the world better.
+        </p>
+        <div class="buttons">
+          <a class="btn primary" href="#achievements">Explore my work</a>
+          <a class="btn secondary" href="#contact">Get in touch</a>
+        </div>
+      </div>
+      <aside class="hero-card">
+        <div class="big">03+</div>
+        <h3>Years of debating</h3>
+        <p>Experience across national and international circuits, alongside academic and extracurricular activities.</p>
+      </aside>
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="container">
+      <div class="section-head">
+        <h2>About me</h2>
+        <p>A student driven by rationality, information, analytical prowess and confident communication.</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-copy">
+          <p>
+            Hello! I'm Tamjid Al Shariq, a 10th grader at St. Gregory's High School and College.
+            I am an active debater present in national and international circuits and I am engaged
+            in many extracurricular activities.
+          </p><br>
+          <p>
+            Beyond debating, I take part in mathematics olympiads, public speaking, spelling bees,
+            IQ tests, science projects and organizing activities. I enjoy using logic, research
+            and communication to tackle problems and pursue the best possible outcome.
+          </p>
+        </div>
+        <div class="facts">
+          <div class="fact"><strong>10th</strong><span>Grade</span></div>
+          <div class="fact"><strong>3+</strong><span>Years debating</span></div>
+          <div class="fact"><strong>43</strong><span>Events & recognitions</span></div>
+          <div class="fact"><strong>GDC</strong><span>Joint Secretary</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <div class="section-head">
+        <h2>Skills & expertise</h2>
+        <p>Skills developed through debating, organizing, public speaking, research and extracurricular activities.</p>
+      </div>
+      <div class="skills-grid">
+        <article class="skill"><div class="num">01</div><h3>Logical Thinking</h3><p>Breaking complex problems down and building rational conclusions.</p></article>
+        <article class="skill"><div class="num">02</div><h3>Leadership</h3><p>Taking responsibility, coordinating people and helping activities move forward.</p></article>
+        <article class="skill"><div class="num">03</div><h3>Communication</h3><p>Clear communication, negotiation and presenting ideas with confidence.</p></article>
+        <article class="skill"><div class="num">04</div><h3>Speaking</h3><p>Debating and public speaking with emphasis on vocal confidence and clarity.</p></article>
+        <article class="skill"><div class="num">05</div><h3>Organizing</h3><p>Planning and contributing to events, activities and institutional initiatives.</p></article>
+        <article class="skill"><div class="num">06</div><h3>Research</h3><p>Gathering information, analyzing perspectives and developing evidence-based arguments.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="achievements" id="achievements">
+    <div class="container">
+      <div class="section-head">
+        <h2>Achievements</h2>
+        <p>Selected achievements from debating, mathematics and public speaking.</p>
+      </div>
+      <div class="timeline">
+        <article class="achievement">
+          <div class="year">Achievement</div>
+          <div><h3>Runner-up — JUDO IS</h3><p>Recognized achievement listed in my portfolio.</p></div>
+          <span class="tag">Competition</span>
+        </article>
+        <article class="achievement">
+          <div class="year">Achievement</div>
+          <div><h3>2nd Runner-up — Math Olympiad, BDMO</h3><p>Mathematics competition recognition.</p></div>
+          <span class="tag">Mathematics</span>
+        </article>
+        <article class="achievement">
+          <div class="year">Achievement</div>
+          <div><h3>3rd — Extempore Speech, NMC</h3><p>Public speaking achievement.</p></div>
+          <span class="tag">Speaking</span>
+        </article>
+        <article class="achievement">
+          <div class="year">Overall</div>
+          <div><h3>43 events and recognitions</h3><p>My portfolio notes national and international achievements across numerous events.</p></div>
+          <span class="tag">43+</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <div class="section-head">
+        <h2>Portfolio overview</h2>
+        <p>Examples of areas where I have applied my organizing, communication, research and creative capabilities.</p>
+      </div>
+      <div class="projects">
+        <article class="project">
+          <div><small>01 · Organizing</small><h3>Event & Activity Organization</h3><p>Experience contributing to and organizing activities, using planning and coordination skills.</p></div>
+          <a href="#contact">Discuss →</a>
+        </article>
+        <article class="project">
+          <div><small>02 · Communication</small><h3>Sponsorship & Negotiation</h3><p>Communication and negotiating experience with organizations for institutional sponsorships.</p></div>
+          <a href="#contact">Discuss →</a>
+        </article>
+        <article class="project">
+          <div><small>03 · Creative Work</small><h3>Visual Communication</h3><p>Projects focused on creating visually striking collateral that communicates effectively.</p></div>
+          <a href="#contact">Discuss →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-head">
+        <h2>Let's connect.</h2>
+        <p>For collaborations, speaking, debating, projects or other opportunities, feel free to reach out.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card"><span>Email</span><a href="mailto:tamjidalshariq@gmail.com">tamjidalshariq@gmail.com</a></div>
+        <div class="contact-card"><span>Phone</span><a href="tel:+8801747901214">+880 1747901214</a></div>
+        <div class="contact-card"><span>Facebook</span><a href="https://www.facebook.com/tamjid.al.shariq" target="_blank" rel="noopener">facebook.com/tamjid.al.shariq</a></div>
+        <div class="contact-card"><span>Location</span><p>Dhaka, Bangladesh</p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <span>© 2026 Tamjid Al Shariq</span>
+    <span>Built as a single-page GitHub Pages portfolio.</span>
+  </div>
+</footer>
+
+<script>
+  const links = document.querySelector('.nav-links');
+  document.querySelector('.menu').addEventListener('click', () => {
+    links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+    links.style.position = 'absolute';
+    links.style.top = '74px';
+    links.style.right = '4%';
+    links.style.flexDirection = 'column';
+    links.style.background = '#fffaf2';
+    links.style.padding = '20px';
+    links.style.borderRadius = '16px';
+    links.style.boxShadow = '0 15px 35px rgba(0,0,0,.12)';
+  });
+</script>
+</body>
+</html>
